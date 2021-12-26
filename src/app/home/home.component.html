@@ -1,17 +1,10 @@
-<h2>Qcm disponible : </h2>
-<div class="container">
-    <div class="row">
-      <div class="col">
-        Title
-      </div>
-      <div class="col">
-        02/10/1999 to
-        02/11/1999
-      </div>
-      <div class="col">
-        1h30
-      </div>
-    </div>
+<app-home-ens *ngIf="authServ.getUser() === 'ens'"></app-home-ens>
+<app-home-etu *ngIf="authServ.getUser() === 'etu'"></app-home-etu>
+<div *ngIf="authServ.getUser() === '' ">
+  <div id="home" class="container">
+    <h1>QCM Application</h1>
+    <p>Connectez vous pour y acceder</p>
+    <img src="../../assets/left-arrow.png"/>
   </div>
+</div>
 
-<input type="button" (click)="getQcm()" />

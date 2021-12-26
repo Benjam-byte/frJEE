@@ -9,6 +9,10 @@ h2{
     margin-bottom: 1%;
 }
 
+.row:hover{
+    background-color: rgba(255, 198, 27, 0.712);
+    cursor: pointer;
+}
 
 .col{
     padding-top : 20px;
@@ -18,20 +22,20 @@ h2{
 #title{
     padding-left : 5%;
     text-align: start;
-    align-self: center;
 }
 #date{
     text-align: center;
-    align-self: center;
 }
 #time{
     text-align: end;
     padding-right : 5%;
-    align-self: center;
 }
 
 
-
+.container{
+    overflow-y: scroll;
+    max-height: 600px;
+}
 
 
   

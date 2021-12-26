@@ -1,6 +1,20 @@
 /* You can add global styles to this file, and also import other style files */
-
+/* amatic-sc-regular - latin */
+@font-face {
+    font-family: 'Amatic SC';
+    font-style: normal;
+    font-weight: 400;
+    src: url('./assets/font/amatic-sc-v16-latin-regular.eot'); /* IE9 Compat Modes */
+    src: local(''),
+         url('./assets/font/amatic-sc-v16-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+         url('./assets/font/amatic-sc-v16-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+         url('./assets/font/amatic-sc-v16-latin-regular.woff') format('woff'), /* Modern Browsers */
+         url('./assets/font/amatic-sc-v16-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+         url('./assets/font/amatic-sc-v16-latin-regular.svg#AmaticSC') format('svg'); /* Legacy iOS */
+  }
 
 body{
     background-color: rgba(43, 42, 42, 0.493);
+    font-family: 'Amatic SC';
+    font-weight: bold;
 }

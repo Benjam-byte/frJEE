@@ -3,19 +3,19 @@ import { Router } from '@angular/router';
 import { AuthService } from '../auth.service';
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-auth-view',
+  templateUrl: './auth-view.component.html',
+  styleUrls: ['./auth-view.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class AuthViewComponent implements OnInit {
 
   constructor(public authServ : AuthService,private router : Router) { }
 
   ngOnInit(): void {
   }
 
-  deconnection() {
-    this.authServ.deconnection();
+  authentification(mail: string, password: string) {
+    this.authServ.authentification(mail, password);
     this.router.navigate(['/']);
   }
 

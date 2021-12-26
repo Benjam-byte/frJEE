@@ -1,1 +1,2 @@
-<p>qcm works!</p>
+<app-qcm-etu *ngIf="authServ.getUser() === 'etu' "></app-qcm-etu>
+<app-qcm-ens *ngIf="authServ.getUser() === 'ens' "></app-qcm-ens>

@@ -9,6 +9,10 @@ h2{
     margin-bottom: 1%;
 }
 
+.row:hover{
+    background-color: rgba(255, 198, 27, 0.712);
+    cursor: pointer;
+}
 
 .col{
     padding-top : 20px;
@@ -31,7 +35,10 @@ h2{
 }
 
 
-
+.container{
+    overflow-y: scroll;
+    max-height: 600px;
+}
 
 
   

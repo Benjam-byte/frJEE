@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&family=Permanent+Marker&family=Space+Mono&display=swap');
+
+h2{
+    font-weight: bolder;
+    font-size: 36px;
+}
+.row{
+    background-color: white;
+    border-radius: 10px;
+    border : 1x grey solid;
+    margin-bottom: 0.2%;
+    padding-top : 20px;
+    padding-bottom : 8px;
+    text-align: center;
+}
+
+.container{
+    margin-bottom: 2%;
+}
+
+
+ul li{
+    list-style-type: none;
+    display: inline;
+    text-align: center;
+    padding: 20px ;
+    margin: 0;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.question{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.del{
+    font-family: 'Open Sans', sans-serif;
+}
+
+.del:hover{
+    cursor: pointer;
+    font-weight: bolder;
+    color : red;
+}
