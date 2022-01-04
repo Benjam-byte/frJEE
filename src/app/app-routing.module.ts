@@ -8,7 +8,7 @@ import { ResultatComponent } from './resultat/resultat.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'auth', component: AuthViewComponent },
-  { path: 'qcm', component: QcmComponent },
+  { path: 'qcm/:id', component: QcmComponent },
   {path : 'res', component:ResultatComponent}
 ];
 

@@ -1,87 +1,12 @@
 <h2 style="margin-left : 1%;margin-bottom : 2%;margin-top: 5%;">QCM n°2 LA MATIERE </h2>
-<div class="container">
-    <div class="row">
-        <p class="question">Quel est la taille de la planete terre en sachant que la distance lune soleil multiplié par n vaut 1500
-            0000km et que les aliens n'osent pas s'en approcher ? </p>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <input type="checkbox" disabled />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox"  disabled/>
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled />
-                <label>1500km</label>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <p class="question">Quel est la taille de la planete terre en sachant que la distance lune soleil multiplié par n vaut 1500
-            0000km et que les aliens n'osent pas s'en approcher ? </p>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <input type="checkbox"  disabled/>
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox"  disabled/>
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled/>
-                <label>1500km</label>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <p class="question">Quel est la taille de la planete terre en sachant que la distance lune soleil multiplié par n vaut 1500
-            0000km et que les aliens n'osent pas s'en approcher ? </p>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <input type="checkbox" disabled />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled/>
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled/>
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" disabled/>
-                <label>1500km</label>
-            </li>
-        </ul>
-    </div>
-</div>
 <h2 style="margin-left : 1%;margin-bottom : 2%;margin-top: 5%;">Liste des inscrits :  </h2>
 <div class="container">
     <div class="row" *ngFor="let person of listInscrit">
         <div class="col" style="text-align: start;">
             <p>{{person.nickname}}</p>
+        </div>
+        <div class="col" style="text-align: center;">
+            <p>{{person.email}}</p>
         </div>
         <div class="col" style='text-align: right;'>
             <p class="del" style="font-size: 20px;">X</p>
@@ -89,6 +14,6 @@
     </div>
     <div style="display: flex;width: 100%;justify-content: center;">
         <button type="button" class="btn btn-primary" >Ajouter</button>
-        <button type="button" class="btn btn-danger" >Tout supprimer</button>
+        <button type="button" class="btn btn-danger" (click)="deleteAll()">Tout supprimer</button>
     </div>
 </div>

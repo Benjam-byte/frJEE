@@ -1,39 +1,15 @@
 <h2 style="margin-left : 1%;margin-bottom : 2%;margin-top: 5%;">Vos Examens: </h2>
 <div class="container">
-    <div class="row" routerLink="/qcm">
+    <div *ngFor="let exam of data" class="row" [routerLink]="['/qcm' ,exam.id]">
       <div id ="title" class="col">
-        Qcm n°2 la matiere
+        {{exam.title}}
       </div>
       <div  id="date" class="col">
-        <p>Disponible le : 02/10/1999 à 10h</p>
-        <p>Jusqu'au : 02/10/1999 à 10h</p>
+        <p>Disponible le : {{exam.debut}}</p>
+        <p>Jusqu'au : {{exam.fin}}</p>
       </div>
       <div id="time" class="col">
-        1h30
-      </div>
-    </div>
-    <div class="row" routerLink="/qcm">
-      <div id ="title" class="col">
-        Qcm n°2 la matiere
-      </div>
-      <div  id="date" class="col">
-        <p>Disponible le : 02/10/1999 à 10h</p>
-        <p>Jusqu'au : 02/10/1999 à 10h</p>
-      </div>
-      <div id="time" class="col">
-        1h30
-      </div>
-    </div>
-    <div class="row" routerLink="/qcm">
-      <div id ="title" class="col">
-        Qcm n°2 la matiere
-      </div>
-      <div  id="date" class="col">
-        <p>Disponible le : 02/10/1999 à 10h</p>
-        <p>Jusqu'au : 02/10/1999 à 10h</p>
-      </div>
-      <div id="time" class="col">
-        1h30
+        {{exam.duree}}
       </div>
     </div>
   </div>

@@ -1,12 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import axios from 'axios';
 
 interface Person {
-  _id: number,
-  birthdate: string,
   email: string,
+  id: number,
   nickname: string,
-  passwordHash: string;
 }
 
 @Component({
@@ -17,21 +16,34 @@ interface Person {
 export class QcmEnsComponent implements OnInit {
 
   listInscrit: Person[] = [];
+  id: string |null;
 
-  constructor() { }
+  constructor(private route : ActivatedRoute) { 
+    this.id = this.route.snapshot.paramMap.get('id');
+    console.log(this.id);
+  }
 
   ngOnInit(): void {
     this.getInscrit();
   }
 
+  initData(data: Person[]) {
+    for (var i = 0; i < data.length; i++){
+      this.listInscrit.push(data[i]);
+    }
+    console.log(this.listInscrit);
+  }
+
+  
   getInscrit() {
-    axios.get('http://localhost:8080/projetqcm/data/persons', {})
-    .then( (response: any) => {
-      this.listInscrit = response.data;
-    })
-    .catch(function (error: any) {
-      console.log(error);
-    });
+    axios.get('http://localhost:8080/projetqcm/data/qcm/'+this.id+"/inscrits", {})
+        .then(response => this.initData(response.data) );    
+  }
+
+  deleteAll() {
+    axios.delete('http://localhost:8080/projetqcm/data/qcm/' + this.id + "/inscrits", {})
+      .then(response => console.log(response));
+      
   }
 
 }
