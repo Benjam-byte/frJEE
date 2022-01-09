@@ -1,79 +1,15 @@
 <h2 style="margin-left : 1%;margin-bottom : 2%;margin-top: 5%;">QCM n°2 LA MATIERE </h2>
-<div class="container">
+<div  *ngFor="let question of QuestionTab" class="container">
     <div class="row">
-        <p class="question">Quel est la taille de la planete terre en sachant que la distance lune soleil multiplié par n vaut 1500
-            0000km et que les aliens n'osent pas s'en approcher ? </p>
+        <p class="question">{{question.enonce}} </p>
     </div>
     <div class="row">
         <ul>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
+            <li *ngFor="let choix of question.copieChoix">
+                <input #check type="checkbox" (click)="coche(question._id,choix._id,check.checked)" [ngModel] = "choix.cochee" />
+                <label>{{choix.enonce}}</label>
             </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <p class="question">Quel est la taille de la planete terre en sachant que la distance lune soleil multiplié par n vaut 1500
-            0000km et que les aliens n'osent pas s'en approcher ? </p>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-        </ul>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <p class="question">Quel est la taille de la planete terre en sachant que la distance lune soleil multiplié par n vaut 1500
-            0000km et que les aliens n'osent pas s'en approcher ? </p>
-    </div>
-    <div class="row">
-        <ul>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
-            <li>
-                <input type="checkbox" />
-                <label>1500km</label>
-            </li>
+           
         </ul>
     </div>
 </div>

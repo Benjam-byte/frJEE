@@ -1,5 +1,17 @@
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
+import { AuthService } from '../auth.service';
+
+interface Exam{
+  debut: string,
+  duree: string,
+  fin: string,
+  id: number,
+  nbInscrits: number,
+  nbQuestions: number,
+  title : string
+}
+
 
 @Component({
   selector: 'app-home-etu',
@@ -8,22 +20,35 @@ import axios from 'axios';
 })
 export class HomeEtuComponent implements OnInit {
 
-  supprimeMoi: string = "stp frero oublie pas";
-  date: boolean = false;
+  data: Exam[] = [];
 
-  constructor() { }
+  constructor(private authServ : AuthService) {
+    this.getQcm();
+   }
 
   ngOnInit(): void {
   }
 
+
+  initData(data: Exam[]) {
+    console.log(data);
+    for (var i = 0; i < data.length; i++){
+      this.data.push(data[i]);
+    }
+    
+  }
+
+
   getQcm() {
-    axios.get('http://localhost:8080/projetqcm/data/persons', {})
-        .then(function (response: any) {
-          console.log(response);
-        })
-        .catch(function (error: any) {
-          console.log(error);
-        });
+    var config : AxiosRequestConfig = {
+      method: 'get',
+      url: 'http://localhost:8080/projetqcm/data/qcmencours',
+      headers: { 
+        'Authorization': 'Bearer '+this.authServ.getJWT()
+      },
+    };
+    axios(config)
+        .then(response => this.initData(response.data) );    
   }
 
 

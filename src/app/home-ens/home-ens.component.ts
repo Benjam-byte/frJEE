@@ -1,6 +1,7 @@
 import { isExpressionFactoryMetadata } from '@angular/compiler/src/render3/r3_factory';
 import { Component, OnInit } from '@angular/core';
-import axios from 'axios';
+import axios, { AxiosRequestConfig } from 'axios';
+import { AuthService } from '../auth.service';
 
 
 interface Exam{
@@ -22,7 +23,8 @@ export class HomeEnsComponent implements OnInit {
 
   data: Exam[] = [];
 
-  constructor() {
+
+  constructor(private authServ : AuthService) {
     this.getQcm();
    }
 
@@ -31,16 +33,24 @@ export class HomeEnsComponent implements OnInit {
 
 
   initData(data: Exam[]) {
+    console.log(data);
     for (var i = 0; i < data.length; i++){
       this.data.push(data[i]);
     }
-    console.log(this.data);
+    
   }
 
   
   getQcm() {
-    axios.get('http://localhost:8080/projetqcm/data/qcm/1', {})
-        .then(response => this.initData(response.data) );    
+    var config : AxiosRequestConfig = {
+      method: 'get',
+      url: 'http://localhost:8080/projetqcm/data/qcm',
+      headers: { 
+        'Authorization': 'Bearer '+this.authServ.getJWT()
+      },
+    };
+
+    axios(config).then(response => this.initData(response.data) );    
   }
 
 }

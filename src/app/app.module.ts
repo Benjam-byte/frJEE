@@ -14,6 +14,7 @@ import { HomeEnsComponent } from './home-ens/home-ens.component';
 import { AuthViewComponent } from './auth-view/auth-view.component';
 import { QcmEtuComponent } from './qcm-etu/qcm-etu.component';
 import { QcmEnsComponent } from './qcm-ens/qcm-ens.component';
+import { AddEtuComponent } from './add-etu/add-etu.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { QcmEnsComponent } from './qcm-ens/qcm-ens.component';
     HomeEnsComponent,
     AuthViewComponent,
     QcmEtuComponent,
-    QcmEnsComponent
+    QcmEnsComponent,
+    AddEtuComponent
   ],
   imports: [
     BrowserModule,

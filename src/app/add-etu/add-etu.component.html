@@ -1,0 +1,37 @@
+<h2 style="margin-left : 1%;margin-bottom : 2%;margin-top: 5%;">Ajouter des etudiants : </h2>
+
+<div class="container" id="vide">
+    <div class="row">
+        <div id="coche" class="col">
+            <label id="select-all">
+                <input type="checkbox" value="select-all" [ngModel]="isCoched" (ngModelChange)="selectAll()"> Tout selectionner
+              </label>
+        </div>
+    </div>
+</div>
+
+<div class="container" id="contain">
+    <div class="row" id="truc" *ngFor="let person of listPerson; let index = index">
+      <div id ="coche" class="col">
+            <input #check type="checkbox" [ngModel]="checkTab[index]" (click)="getCheck(index,check.checked)">
+      </div>
+      <div  id="nickname" class="col">
+        <p >{{person.nickname}}</p>
+      </div>
+      <div id="ajouter" class="col">
+        <button type="button" class="btn btn-primary" (click)="addOne(person)" >Ajouter</button>
+      </div>
+    </div> 
+  </div>
+
+  <div class="container" id="vide">
+    <div class="row">
+        <div  class="col">
+            <button type="button" class="btn btn-primary" style="margin-right:1%" (click)="addSelect()">Ajouter selectionner</button>
+            <button type="button" class="btn btn-danger" (click)="replaceSelect()">Remplacer selectionner</button>
+        </div>
+    </div>
+</div>
+  
+
+

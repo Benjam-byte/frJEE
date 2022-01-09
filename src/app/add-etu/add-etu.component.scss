@@ -1,0 +1,40 @@
+
+#contain{
+    overflow-y: scroll;
+    max-height: 600px;
+}
+
+
+
+h2{
+    font-weight: bolder;
+    font-size: 36px;
+}
+#contain .row{
+    background-color: white;
+    border-radius: 10px;
+    border : 1x grey solid;
+    margin-bottom: 1%;
+}
+
+#contain .row:hover{
+    background-color: rgba(255, 198, 27, 0.712);
+    cursor: pointer;
+}
+
+.col{
+    padding-top : 20px;
+    padding-bottom : 8px;
+}
+#coche{
+    padding-left : 5%;
+    text-align: start;
+}
+#nickname{
+    text-align: center;
+}
+#ajouter{
+    text-align: end;
+    padding-right : 5%;
+}
+
