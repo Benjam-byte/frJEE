@@ -30,7 +30,6 @@ interface ChoixCopie{
 })
 export class QcmEtuComponent implements OnInit {
 
-  idEtu: number = 10;
   idExam: string | null;
   exam!: ExamCopie;
   QuestionTab: QuestionCopie[] = [];
