@@ -21,8 +21,7 @@ export class QcmEnsComponent implements OnInit {
 
   constructor(private route : ActivatedRoute, private authServ : AuthService) { 
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
-  }
+    }
 
   ngOnInit(): void {
     this.getInscrit();
@@ -32,7 +31,6 @@ export class QcmEnsComponent implements OnInit {
     for (var i = 0; i < data.length; i++){
       this.listInscrit.push(data[i]);
     }
-    console.log(this.listInscrit);
   }
   
   getInscrit() {
@@ -56,8 +54,10 @@ export class QcmEnsComponent implements OnInit {
       },
     };
     axios(config)
-      .then(response => console.log(response));
-    this.listInscrit = [];
+      .then(response => { console.log(response); this.listInscrit = [];})
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   delete(etuId: number) {
@@ -69,8 +69,11 @@ export class QcmEnsComponent implements OnInit {
       },
     };
     axios(config)
-      .then(response => console.log(response));
-    this.delEtu(etuId);
+      .then(response => { console.log(response);this.delEtu(etuId) })
+      .catch(function (error) {
+        console.log(error);
+      });
+    
   }
 
 

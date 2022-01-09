@@ -31,7 +31,6 @@ export class HomeEtuComponent implements OnInit {
 
 
   initData(data: Exam[]) {
-    console.log(data);
     for (var i = 0; i < data.length; i++){
       this.data.push(data[i]);
     }

@@ -36,9 +36,8 @@ export class AddEtuComponent implements OnInit {
 
   isCoched: boolean = false;
 
-  constructor(private route: ActivatedRoute,private authServ : AuthService) {
+  constructor(private route: ActivatedRoute, private authServ: AuthService) {
     this.id = this.route.snapshot.paramMap.get('id');
-    console.log(this.id);
   }
 
 
@@ -48,31 +47,32 @@ export class AddEtuComponent implements OnInit {
   }
 
   getQcm() {
-    var config : AxiosRequestConfig = {
+    var config: AxiosRequestConfig = {
       method: 'get',
       url: 'http://localhost:8080/projetqcm/data/qcm',
-      headers: { 
-        'Authorization': 'Bearer '+this.authServ.getJWT()
+      headers: {
+        'Authorization': 'Bearer ' + this.authServ.getJWT()
       },
     };
 
-    axios(config).then(response => this.initData(response.data) );    
+    axios(config).then(response => this.initData(response.data));
   }
 
 
 
   addOne(person: Person2) {
-    var config : AxiosRequestConfig = {
+    var config: AxiosRequestConfig = {
       method: 'patch',
       url: 'http://localhost:8080/projetqcm/data/qcm/' + this.id + "/inscrits",
-      headers: { 
-        'Authorization': 'Bearer '+this.authServ.getJWT()
+      headers: {
+        'Authorization': 'Bearer ' + this.authServ.getJWT()
       },
-      data : [person._id]
+      data: [person._id]
     };
-    axios(config).then(response => console.log(response));
-    this.delEtu(person);
-    this.initTcheckTab(this.listPerson);
+    axios(config).then(response => { console.log(response); this.delEtu(person); this.initTcheckTab(this.listPerson); })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   delEtu(person: Person2) {
@@ -90,19 +90,24 @@ export class AddEtuComponent implements OnInit {
         tabId.push(this.listPerson[i]._id);
       }
     }
-    var config : AxiosRequestConfig = {
+    var config: AxiosRequestConfig = {
       method: 'patch',
       url: 'http://localhost:8080/projetqcm/data/qcm/' + this.id + "/inscrits",
-      headers: { 
-        'Authorization': 'Bearer '+this.authServ.getJWT()
+      headers: {
+        'Authorization': 'Bearer ' + this.authServ.getJWT()
       },
-      data : tabId
+      data: tabId
     };
-    axios(config).then(response => console.log(response));
-    for (var j = 0; j < tabId.length; j++) {
-      this.delPerson(tabId[j]);
-    }
-    this.initTcheckTab(this.listPerson);
+    axios(config).then(response => {
+      console.log(response);
+      for (var j = 0; j < tabId.length; j++) {
+        this.delPerson(tabId[j]);
+      }
+      this.initTcheckTab(this.listPerson);
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
   }
 
   delPerson(id: number) {
@@ -121,19 +126,25 @@ export class AddEtuComponent implements OnInit {
         tabId.push(this.listPerson[i]._id);
       }
     }
-    var config : AxiosRequestConfig = {
+    var config: AxiosRequestConfig = {
       method: 'put',
       url: 'http://localhost:8080/projetqcm/data/qcm/' + this.id + "/inscrits",
-      headers: { 
-        'Authorization': 'Bearer '+this.authServ.getJWT()
+      headers: {
+        'Authorization': 'Bearer ' + this.authServ.getJWT()
       },
-      data : tabId
+      data: tabId
     };
-    axios(config).then(response => console.log(response));
-    for (var j = 0; j < tabId.length; j++) {
-      this.delPerson(tabId[j]);
-    }
-    this.initTcheckTab(this.listPerson);
+    axios(config).then(response => {
+      console.log(response);
+      for (var j = 0; j < tabId.length; j++) {
+        this.delPerson(tabId[j]);
+      }
+      this.initTcheckTab(this.listPerson);
+    })
+      .catch(function (error) {
+        console.log(error);
+      });
+
   }
 
   initTcheckTab(tab: any) {
@@ -141,7 +152,6 @@ export class AddEtuComponent implements OnInit {
     for (var i = 0; i < tab.length; i++) {
       this.checkTab.push(false);
     }
-    console.log(this.checkTab);
   }
 
 
@@ -157,7 +167,6 @@ export class AddEtuComponent implements OnInit {
       }
       this.isCoched = true;
     }
-    console.log(this.checkTab);
   }
 
 
@@ -175,7 +184,6 @@ export class AddEtuComponent implements OnInit {
   initListPerson() {
     for (var i = 0; i < this.listFuturPerson.length; i++) {
       if (!this.alreadyExist(this.listFuturPerson[i]._id)) {
-        console.log("j'init une persone");
         this.listPerson.push(this.listFuturPerson[i]);
       }
     }
@@ -188,25 +196,21 @@ export class AddEtuComponent implements OnInit {
         this.listFuturPerson.push(data[i]);
       }
     }
-    console.log("futur personne");
-    console.log(this.listFuturPerson);
   }
 
   initData2(data: Person[]) {
     for (var i = 0; i < data.length; i++) {
       this.listAlreadyInscrit.push(data[i]);
     }
-    console.log("personne deja inscrite");
-    console.log(this.listAlreadyInscrit);
   }
 
 
   getData() {
-    var config : AxiosRequestConfig = {
+    var config: AxiosRequestConfig = {
       method: 'get',
       url: 'http://localhost:8080/projetqcm/data/qcm/' + this.id + "/inscrits",
-      headers: { 
-        'Authorization': 'Bearer '+this.authServ.getJWT()
+      headers: {
+        'Authorization': 'Bearer ' + this.authServ.getJWT()
       },
     };
     axios.get("http://localhost:8080/projetqcm/data/persons2", {})
@@ -228,11 +232,11 @@ export class AddEtuComponent implements OnInit {
 
 
   getAlreadyInscrit() {
-    var config : AxiosRequestConfig = {
+    var config: AxiosRequestConfig = {
       method: 'get',
       url: 'http://localhost:8080/projetqcm/data/qcm/' + this.id + "/inscrits",
-      headers: { 
-        'Authorization': 'Bearer '+this.authServ.getJWT()
+      headers: {
+        'Authorization': 'Bearer ' + this.authServ.getJWT()
       },
     };
     axios(config).then(response => this.initData2(response.data));

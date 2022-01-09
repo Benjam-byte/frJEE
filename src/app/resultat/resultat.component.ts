@@ -35,7 +35,6 @@ export class ResultatComponent implements OnInit {
       this.data.push(data[i]);
       this.data[i].pourcentage = this.data[i].pourcentage / 5;
     }
-    console.log(this.data);
   }
 
  
